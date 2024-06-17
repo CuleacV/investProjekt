@@ -37,7 +37,7 @@ class User
     {
         try {
             $con = self::dbcon();
-            $sql = 'INSERT INTO user (VorNachname, userName, email, pwhash) VALUES (:vorNachname, :userName, :email, :pwhash)';
+            $sql = 'INSERT INTO investuser (VorNachname, userName, email, pwhash) VALUES (:vorNachname, :userName, :email, :pwhash)';
             $stmt = $con->prepare($sql);
             $pwhash = password_hash($password, PASSWORD_DEFAULT);
             $stmt->bindParam(':vorNachname', $vorNachname);
@@ -54,7 +54,7 @@ class User
     public static function findById(int $id): User
     {
         $con = self::dbcon();
-        $sql = 'SELECT * FROM user WHERE id = :id';
+        $sql = 'SELECT * FROM investuser WHERE id = :id';
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();

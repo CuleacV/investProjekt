@@ -1,23 +1,21 @@
 <?php
-global $connect;
+require_once __DIR__ . '/../DB/connect.php';
+require_once __DIR__ . '/../class/User.php';
 session_start();
-require_once '../DB/connect.php';
+global $connect;
 
 $login = $_POST['login'];
 $password = $_POST['password'];
 
-// Изменим запрос на выборку данных пользователя
 $check_user = mysqli_query($connect, "SELECT * FROM investuser WHERE userName = '$login'");
-
 if (mysqli_num_rows($check_user) > 0) {
-    $user = mysqli_fetch_assoc($check_user);
-
-    // Используем password_verify для проверки пароля
-    if (password_verify($password, $user['pwhash'])) {
+    $user_data = mysqli_fetch_assoc($check_user);
+    if (password_verify($password, $user_data['pwhash'])) {
+        $user = new User($user_data['id'], $user_data['VorNachname'], $user_data['userName'], $user_data['email'], $user_data['pwhash']);
         $_SESSION['investUser'] = [
-            "id" => $user['id'],
-            "full_name" => $user['VorNachname'],
-            "email" => $user['email']
+            "id" => $user->getId(),
+            "full_name" => $user->getVorNachname(),
+            "email" => $user->getEmail()
         ];
         header('Location: ../controll/logika.php');
     } else {
@@ -29,3 +27,4 @@ if (mysqli_num_rows($check_user) > 0) {
     header('Location: ../index.php');
 }
 ?>
+
