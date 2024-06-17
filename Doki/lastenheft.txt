@@ -1,0 +1,53 @@
+Dieses Projekt ist ein persönlicher Anlagekalkulator, mit dem Benutzer ihre bereits gekauften Aktien verwalten können.
+Zudem kann der Benutzer die Gesamtsumme der investierten Gelder berechnen, den jährlichen Zinssatz und die Anlagedauer auswählen.
+Es besteht auch die Möglichkeit, monatlich in Aktien zu investieren.
+Der Kalkulator liefert schließlich den ursprünglichen Kapitalbetrag, die monatlichen Einzahlungen und das Kapitalwachstum,
+wobei diese Beträge summiert werden, um den Gesamtgewinn der Investitionen zu ermitteln.
+
+Der Start erfolgt auf der Anmeldeseite der Plattform.
+Auf der Seite gibt es ein Formular zur Eingabe von Login und Passwort sowie eine Schaltfläche "Submit".
+
+Falls der Benutzer neu ist und sich noch nicht registriert hat, befindet sich unter der Schaltfläche
+"Submit" eine Schaltfläche "Create New Account". In diesem Fall gelangt der Benutzer auf eine neue
+Seite, auf der er sich registrieren muss, indem er folgende Daten eingibt:
+
+    1. Benutzername
+    2. E-Mail
+    3. Passwort
+    4. Passwort bestätigen
+    5. Schaltfläche "Create Account"
+
+Nach der Erstellung des Kontos werden die Daten des neuen Benutzers in der Datenbank
+gespeichert. Der Benutzer kehrt dann zur Anmeldeseite zurück, gibt seine Daten ein und klickt auf
+die Schaltfläche "Submit".
+
+Nach dem Klicken auf "Submit" gelangt der Benutzer zur Startseite. Auf der Startseite kann er eine
+Datei mit bereits gekauften Aktien hochladen, um sie zu sichern. Außerdem kann er den vollen
+Funktionsumfang des Kalkulators nutzen.
+
+------------------------------------------------------------------------------------------------------------------------
+
+ Это проект который представляет собой инвестиционный лицный калькулятор где пользователь может держать свои уже купленные акции.
+ Так же он может посчитать общию сумму вложеных денег, выбрать под какой годовой процент он вложил свои деньги и на
+ какой срок он инвестировал свои деньги. Так же есть возможность выбрать ежемесяцное вложение средств в акниты.
+ Калькулятор в конечном итоге выдаст первоначальгый капитад + ежемесяцные вложения + рост капитала, вся эта сумма
+ сложится вместе и получится общая прибыль вложений.
+
+
+ Начало положено со стартовой страницы входа на платформу.
+ Перед пользователем на странице экрана есть форма входа Login и Password + Submit
+
+ Если пользователь новый и еще не зарегестрировался тогда под кнопкой Submit будет кнопка с Create new Account
+ В этом случаи он переходит на новую страницу где он должен зарегестрироваться
+     1 User Name
+     2 email
+     3 password
+     4 password check
+     5 button -> create account
+
+После создания аккаунта новый пользователь сохраняются в базе данных.
+Пользователь переходит снова на страницу входа вводит свои данные Login и Password и нажимает кнопку Submit.
+
+После нажатия на кнопку Submit пользователь подает на главную страницу
+на главноой странице, пользователь может прекрепить файл с уже куплеными акциями, для сохранности.
+Так же он может воспользоваться полным функцианалом калькулятора
