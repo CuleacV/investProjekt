@@ -13,95 +13,12 @@ if (!isset($_SESSION['investUser'])) {
     <meta charset="UTF-8">
     <title>Logik</title>
     <link rel="stylesheet" href="../style/main.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            margin-top: 2cm; /* отступ сверху */
-            margin-bottom: 2cm; /* отступ снизу */
-        }
-        h2 {
-            margin-top: 0;
-        }
-        .form-container {
-            margin-top: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input, .form-group select {
-            width: calc(100% - 22px);
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-group .currency, .form-group .unit {
-            display: inline-block;
-            width: 20px;
-            text-align: right;
-        }
-        .form-group .inline-input {
-            display: inline-block;
-            width: calc(50% - 10px);
-        }
-        .form-group .inline-input + .inline-input {
-            margin-left: 20px;
-        }
-        .submit-btn {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .submit-btn:hover {
-            background-color: #0056b3;
-        }
-        .logout {
-            display: block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #000;
-        }
-        .result-container {
-            margin-top: 20px;
-        }
-        .result-container p {
-            margin: 5px 0;
-        }
-        .chart-container {
-            margin-top: 20px;
-        }
-        .chart {
-            width: 100%;
-            height: 400px;
-        }
-    </style>
+    <link rel="stylesheet" href="../style/logika.css">
 </head>
 <body>
 
 <div class="container">
+    <button class="update-btn" onclick="document.getElementById('updateModal').style.display='block'">Update</button>
     <h2>Welcome in investment calculator <?= htmlspecialchars($_SESSION['investUser']['full_name']) ?></h2>
     <p>Füllen Sie das Formular aus, um den endgültigen Investitionsbetrag zu berechnen.</p>
 
@@ -129,7 +46,7 @@ if (!isset($_SESSION['investUser'])) {
             $additionalInvestment = isset($_POST['additionalInvestment']) ? floatval(str_replace(',', '', $_POST['additionalInvestment'])) : 0;
             $additionalFrequency = isset($_POST['additionalFrequency']) ? intval($_POST['additionalFrequency']) : 0;
 
-            // Berechnung des Endgültigen Investitionsbetrags
+            // Berechnung des Endgultigen Investitionsbetrags
             $finalAmount = calculateCompoundInterest($principal, $annualInterestRate, $years, $compoundFrequency, $additionalInvestment, $additionalFrequency);
             $totalAdditionalInvestments = $additionalInvestment * $additionalFrequency * $years;
             $totalInvested = $principal + $totalAdditionalInvestments;
@@ -148,15 +65,15 @@ if (!isset($_SESSION['investUser'])) {
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label for="principal">Startkapital (EUR):</label>
-                <input type="text" id="principal" name="principal" required>
+                <input type="number" id="principal" name="principal" min="0" required>
             </div>
             <div class="form-group">
                 <label for="years">Anlagezeitraum (Jahre):</label>
-                <input type="number" id="years" name="years" required>
+                <input type="number" id="years" name="years" min="0" required>
             </div>
             <div class="form-group">
                 <label for="annualInterestRate">Jahreszinssatz (%):</label>
-                <input type="number" step="0.01" id="annualInterestRate" name="annualInterestRate" required>
+                <input type="number" step="0.01" min="0.00" id="annualInterestRate" name="annualInterestRate"  required>
             </div>
             <div class="form-group">
                 <label for="compoundFrequency">Häufigkeit des Zinseszinses:</label>
@@ -168,7 +85,7 @@ if (!isset($_SESSION['investUser'])) {
             </div>
             <div class="form-group">
                 <label for="additionalInvestment">Zusätzliche Investitionen (EUR):</label>
-                <input type="text" id="additionalInvestment" name="additionalInvestment">
+                <input type="number" id="additionalInvestment" name="additionalInvestment" min="0">
             </div>
             <div class="form-group">
                 <label for="additionalFrequency">Häufigkeit der zusätzlichen Investitionen:</label>
@@ -210,9 +127,41 @@ if (!isset($_SESSION['investUser'])) {
             </script>
         <?php endif; ?>
 
-        <a href="../scripts/logOut.php" class="logout">Log out</a>
+        <a href="../scripts/logOut.php" class="logout">Logout</a>
     </div>
 </div>
+
+<!-- The Modal -->
+<div id="updateModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="document.getElementById('updateModal').style.display='none'">&times;</span>
+        <h2>Update Profile</h2>
+        <form action="../scripts/updateProfile.php" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="<?= isset($_SESSION['investUser']['username']) ? htmlspecialchars($_SESSION['investUser']['username']) : '' ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<?= isset($_SESSION['investUser']['email']) ? htmlspecialchars($_SESSION['investUser']['email']) : '' ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit" class="submit-btn">Update</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let modal = document.getElementById('updateModal');
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
