@@ -19,7 +19,7 @@ if (isset($_SESSION['investUser'])) {
 <!-- Autorisierungsformular -->
 
 <form action="scripts/singIn.php" method="post">
-    <label>Log In</label>
+    <label>Login</label>
     <input type="text" name="login" placeholder="Benutzernamen" required>
     <label>Password</label>
     <input type="password" name="password" placeholder="Dein Passwort" required>

@@ -31,7 +31,7 @@ if (isset($_SESSION['investUser'])) {
     <input type="password" name="password_confirm" placeholder="Wiederhole dein Passwort" required>
     <button type="submit">SUBMIT</button>
     <p>
-        Sie haben ein Konto - <a href='index.php'>Autorisierung</a>!
+        Sie haben ein Account - <a href='index.php'>Autorisierung</a>!
     </p>
     <?php
     if (isset($_SESSION['message'])) {
