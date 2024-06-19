@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../img/many-1.jpg"); /* путь к вашему изображению */
+    background-size: cover; /* изображение будет покрывать всю область */
+    /*background-repeat: no-repeat; !* изображение не будет повторяться *!*/
+    background-position: center center; /* изображение будет по центру */
+}
+
+/*body::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-color: rgba(81, 108, 73, 0.5); !* Белое наложение с полупрозрачностью *!*/
+/*    z-index: -1;*/
+/*}*/
+.container {
+    backdrop-filter: blur(40px);
+    border-radius: 50px;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 2cm;
+    margin-bottom: 2cm;
+    position: relative;
+}
+.update-btn {
+    position: absolute;
+    bottom: 71px; /* Смещение снизу */
+    right: 20px;  /* Смещение справа */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.update-btn:hover {
+    background-color: #0056b3;
+}
+h2 {
+    margin-top: 0;
+    text-align: center; /* Центрируем заголовок */
+}
+.form-container {
+    margin-top: 20px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+.logout {
+    display: block;
+    text-align: center; /* Выравниваем текст по центру */
+    text-decoration: none;
+    color: #110101;
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: transparent ; /* Убираем фон */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.result-container {
+    margin-top: 20px;
+}
+.result-container p {
+    margin: 5px 0;
+}
+.chart-container {
+    margin-top: 20px;
+}
+.chart {
+    width: 100%;
+    height: 400px;
+}
+/* Styles for modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+

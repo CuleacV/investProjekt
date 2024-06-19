@@ -12,7 +12,7 @@ if (isset($_SESSION['investUser'])) {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 

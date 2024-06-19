@@ -12,7 +12,7 @@ if (!isset($_SESSION['investUser'])) {
 <head>
     <meta charset="UTF-8">
     <title>Logik</title>
-    <link rel="stylesheet" href="../style/logika.css">
+    <link rel="stylesheet" href="../css/logika.css">
 </head>
 <body>
 

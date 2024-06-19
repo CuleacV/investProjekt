@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat, sans-serif;
+
+    background-image: url("../img/bild-1.jpg"); /* путь к вашему изображению */
+    background-size: cover; /* изображение будет покрывать всю область */
+    background-repeat: no-repeat; /* изображение не будет повторяться */
+    background-position: center center; /* изображение будет по центру */
+    margin: 0; /* убирает отступы */
+}
+
+a {
+    color: #033156;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    border: unset;
+    border-bottom: 2px solid #033156;
+}
+
+button {
+    padding: 10px;
+    background: #60809a;
+    border: unset;
+    cursor: pointer;
+}
+.msg{
+    border: 2px solid #df4747;
+    border-radius: 3px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
