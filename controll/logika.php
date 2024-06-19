@@ -24,7 +24,8 @@ if (!isset($_SESSION['investUser'])) {
     <div class="form-container">
         <?php
         // Funktion zur Berechnung des Zinseszinses
-        function calculateCompoundInterest($principal, $annualInterestRate, $years, $compoundFrequency, $additionalInvestment, $additionalFrequency) {
+        function calculateCompoundInterest($principal, $annualInterestRate, $years, $compoundFrequency, $additionalInvestment, $additionalFrequency)
+        {
             $totalPeriods = $years * $compoundFrequency;
             $totalAdditionalPeriods = $years * $additionalFrequency;
             $ratePerPeriod = $annualInterestRate / $compoundFrequency;
@@ -72,7 +73,7 @@ if (!isset($_SESSION['investUser'])) {
             </div>
             <div class="form-group">
                 <label for="annualInterestRate">Jahreszinssatz (%):</label>
-                <input type="number" step="0.01" min="0.00" id="annualInterestRate" name="annualInterestRate"  required>
+                <input type="number" step="0.01" min="0.00" id="annualInterestRate" name="annualInterestRate" required>
             </div>
             <div class="form-group">
                 <label for="compoundFrequency">Häufigkeit des Zinseszinses:</label>
@@ -107,23 +108,30 @@ if (!isset($_SESSION['investUser'])) {
                 </div>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-                var ctx = document.getElementById('resultChart').getContext('2d');
-                var resultChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: ['Anfangskapital', 'Einkommen', 'Zusätzliche Investitionen'],
-                        datasets: [{
-                            data: [<?= $principal ?>, <?= $income ?>, <?= $totalAdditionalInvestments ?>],
-                            backgroundColor: ['#007bff', '#28a745', '#ffc107'],
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                    }
-                });
-            </script>
+                <script>
+                    let ctx = document.getElementById('resultChart').getContext('2d');
+                    let resultChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Anfangskapital', 'Einkommen', 'Zusätzliche Investitionen'],
+                            datasets: [{
+                                data: [<?= $principal ?>, <?= $income ?>, <?= $totalAdditionalInvestments ?>],
+                                backgroundColor: ['#007bff', '#28a745', '#ffc107'],
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: '#110101'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
         <?php endif; ?>
 
         <a href="../scripts/logOut.php" class="logout">Logout</a>
@@ -138,11 +146,15 @@ if (!isset($_SESSION['investUser'])) {
         <form action="../scripts/updateProfile.php" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value="<?= isset($_SESSION['investUser']['username']) ? htmlspecialchars($_SESSION['investUser']['username']) : '' ?>" required>
+                <input type="text" id="username" name="username"
+                       value="<?= isset($_SESSION['investUser']['username']) ? htmlspecialchars($_SESSION['investUser']['username']) : '' ?>"
+                       required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="<?= isset($_SESSION['investUser']['email']) ? htmlspecialchars($_SESSION['investUser']['email']) : '' ?>" required>
+                <input type="email" id="email" name="email"
+                       value="<?= isset($_SESSION['investUser']['email']) ? htmlspecialchars($_SESSION['investUser']['email']) : '' ?>"
+                       required>
             </div>
             <div class="form-group">
                 <label for="password">New Password:</label>
@@ -155,7 +167,7 @@ if (!isset($_SESSION['investUser'])) {
 
 <script>
     let modal = document.getElementById('updateModal');
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
