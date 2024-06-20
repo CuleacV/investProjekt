@@ -18,7 +18,7 @@ if (!isset($_SESSION['investUser'])) {
 
 <div class="container">
     <button class="update-btn" onclick="document.getElementById('updateModal').style.display='block'">Update</button>
-    <h2>Welcome in investment calculator <?= htmlspecialchars($_SESSION['investUser']['full_name']) ?></h2>
+    <h2>Willkommen im Investitionsrechner <?= htmlspecialchars($_SESSION['investUser']['full_name']) ?></h2>
     <p>Füllen Sie das Formular aus, um den endgültigen Investitionsbetrag zu berechnen.</p>
 
     <div class="form-container">

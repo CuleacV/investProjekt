@@ -26,9 +26,11 @@ if (isset($_SESSION['investUser'])) {
     <label>Email</label>
     <input type="text" name="email" placeholder="Dein Email" required>
     <label>Password</label>
-    <input type="password" name="password" placeholder="Gib deinen Passwort ein" required>
+    <input type="password" name="password" placeholder="Gib deinen Passwort ein" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+           title="Das Passwort muss länger als 6 sein und Symbole enthalten" required>
     <label>Repeat Password</label>
-    <input type="password" name="password_confirm" placeholder="Wiederhole dein Passwort" required>
+    <input type="password" name="password_confirm" placeholder="Wiederhole dein Passwort" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+           title="Das Passwort muss länger als 6 sein und Symbole enthalten" required>
     <button type="submit">SUBMIT</button>
     <p>
         Sie haben ein Account - <a href='index.php'>Autorisierung</a>!
