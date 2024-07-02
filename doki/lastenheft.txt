@@ -1,5 +1,5 @@
-Dieses Projekt ist ein persönlicher Anlagekalkulator, mit dem Benutzer ihre bereits gekauften Aktien verwalten können.
-Zudem kann der Benutzer die Gesamtsumme der investierten Gelder berechnen, den jährlichen Zinssatz und die Anlagedauer auswählen.
+Dieses Projekt ist ein persönlicher Anlagekalkulator. Zudem kann der Benutzer die Gesamtsumme
+der investierten Gelder berechnen, den jährlichen Zinssatz und die Anlagedauer auswählen.
 Es besteht auch die Möglichkeit, monatlich in Aktien zu investieren.
 Der Kalkulator liefert schließlich den ursprünglichen Kapitalbetrag, die monatlichen Einzahlungen und das Kapitalwachstum,
 wobei diese Beträge summiert werden, um den Gesamtgewinn der Investitionen zu ermitteln.
@@ -21,9 +21,8 @@ Nach der Erstellung des Kontos werden die Daten des neuen Benutzers in der Daten
 gespeichert. Der Benutzer kehrt dann zur Anmeldeseite zurück, gibt seine Daten ein und klickt auf
 die Schaltfläche "Submit".
 
-Nach dem Klicken auf "Submit" gelangt der Benutzer zur Startseite. Auf der Startseite kann er eine
-Datei mit bereits gekauften Aktien hochladen, um sie zu sichern. Außerdem kann er den vollen
-Funktionsumfang des Kalkulators nutzen.
+Nach dem Klicken auf "Submit" gelangt der Benutzer zur Startseite. Dort kann er die volle Funktionalität des
+Rechners nutzen oder seine Daten aktualisieren.
 
 ------------------------------------------------------------------------------------------------------------------------
 
